@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Atrasos</title>
+    <style>
+        body {
+            background-image: url('logo_ccoo.png'); /* Cambia el nombre del archivo si es necesario */
+            background-size: cover; /* Ajusta la imagen para que cubra el fondo */
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>Calculadora de Atrasos</h1>
+        <label for="retribuciones2022">Retribuciones 2022:</label>
+        <input type="number" id="retribuciones2022" placeholder="Ingrese retribuciones 2022"><br><br>
+
+        <label for="retribuciones2023">Retribuciones 2023:</label>
+        <input type="number" id="retribuciones2023" placeholder="Ingrese retribuciones 2023"><br><br>
+
+        <label for="retribuciones2024">Retribuciones 2024:</label>
+        <input type="number" id="retribuciones2024" placeholder="Ingrese retribuciones 2024"><br><br>
+
+        <button onclick="calcularAtrasos()">Calcular Atrasos</button>
+
+        <h2>Resultados:</h2>
+        <p id="resultado2022"></p>
+        <p id="resultado2023"></p>
+        <p id="resultado2024"></p>
+    </div>
+
+    <script>
+        function calcularAtrasos() {
+            let retribuciones2022 = parseFloat(document.getElementById('retribuciones2022').value);
+            let retribuciones2023 = parseFloat(document.getElementById('retribuciones2023').value);
+            let retribuciones2024 = parseFloat(document.getElementById('retribuciones2024').value);
+
+            let atrasos2022 = retribuciones2022 * 0.03;
+            let atrasos2023 = (retribuciones2022 * 0.03) + (retribuciones2023 * 0.066);
+            let atrasos2024 = (retribuciones2022 * 0.03) + (retribuciones2023 * 0.066) + (retribuciones2024 * 0.1034);
+
+            document.getElementById('resultado2022').innerHTML = "Atrasos 2022: " + atrasos2022.toFixed(2) + " €";
+            document.getElementById('resultado2023').innerHTML = "Atrasos 2023: " + atrasos2023.toFixed(2) + " €";
+            document.getElementById('resultado2024').innerHTML = "Atrasos 2024: " + atrasos2024.toFixed(2) + " €";
+        }
+    </script>
+
+</body>
+</html>
